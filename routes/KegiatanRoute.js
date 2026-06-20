@@ -4,6 +4,7 @@ import {
   getKegiatan,
   getKegiatanById,
   createPengajuanKegiatan,
+  getPengajuanSaya
 } from "../controllers/KegiatanController.js";
 
 import verifyToken from "../middleware/authMiddleware.js";
@@ -23,4 +24,9 @@ router.post(
   createPengajuanKegiatan
 );
 
+router.get(
+  "/pengajuan-saya",
+  verifyToken,
+  getPengajuanSaya
+);
 export default router;

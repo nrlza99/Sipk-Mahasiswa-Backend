@@ -87,3 +87,20 @@ export const createPengajuanKegiatan = async (req, res) => {
     });
   }
 };
+
+export const getPengajuanSaya = async (req, res) => {
+  try {
+    const kegiatan = await Kegiatan.findAll({
+      where: {
+        nim_pengaju: req.user.nim,
+      },
+      order: [["id", "DESC"]],
+    });
+
+    res.status(200).json(kegiatan);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
