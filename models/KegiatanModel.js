@@ -53,6 +53,10 @@ const Kegiatan = db.define(
     nim_pengaju: {
       type: DataTypes.STRING,
     },
+
+    alasan_penolakan: {
+      type: DataTypes.TEXT,
+    }
   },
   {
     tableName: "kegiatans",
