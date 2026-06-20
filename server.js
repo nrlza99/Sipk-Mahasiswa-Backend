@@ -39,12 +39,13 @@ app.get("/", (req, res) => {
   res.send("API SIPK berjalan...");
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
-
 app.get("/tes123", (req, res) => {
   res.json({
     message: "TES BERHASIL",
   });
+
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
+
 });
