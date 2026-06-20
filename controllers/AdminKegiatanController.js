@@ -50,11 +50,26 @@ export const updateKegiatanAdmin = async (req, res) => {
 export const verifyKegiatan = async (req, res) => {
     try {
         const k = await Kegiatan.findByPk(req.params.id);
-        if (!k) return res.status(404).json({ message: "Data tidak ditemukan" });
-        await k.update({ status: req.body.status });
-        res.status(200).json({ success: true, message: "Berhasil verifikasi" });
+
+        if (!k) return res.status(404).json({ 
+            message: "Data tidak ditemukan" 
+        });
+
+        await k.update({
+             status: req.body.status, 
+             alasan_penolakan: req.body.alasan_penolakan || null
+        });
+
+        res.status(200).json({
+            success: true,
+            message: "Berhasil verifikasi"
+        });
+
     } catch (error) {
-        res.status(500).json({ success: false, message: error.message });
+        res.status(500).json({
+            success:false,
+            message:error.message
+        });
     }
 };
 
