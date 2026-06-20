@@ -29,4 +29,10 @@ router.get(
   verifyToken,
   getPengajuanSaya
 );
+
+router.get("/tes-pengajuan", (req, res) => {
+  res.json({
+    message: "ROUTE PENGAJUAN AKTIF"
+  });
+});
 export default router;
