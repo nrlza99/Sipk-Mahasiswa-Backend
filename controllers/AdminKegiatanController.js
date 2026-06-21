@@ -49,7 +49,6 @@ export const updateKegiatanAdmin = async (req, res) => {
 
 export const verifyKegiatan = async (req, res) => {
     try {
-            console.log("BODY:", req.body);
         const k = await Kegiatan.findByPk(req.params.id);
 
         if (!k) return res.status(404).json({ 
